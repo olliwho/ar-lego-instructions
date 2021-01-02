@@ -1,0 +1,47 @@
+ManifestFileVersion: 0
+CRC: 3024350293
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 78addc14d5f6445c2d5805857be14a96
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: f36c9c8b64978d0f0375ccd6cab767d7
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/Models/10156-1 - LEGO Truck/10156-1 - LEGO Truck_step9.obj
+- Assets/Models/10156-1 - LEGO Truck/10156-1 - LEGO Truck_step12.obj
+- Assets/Models/10156-1 - LEGO Truck/10156-1 - LEGO Truck_step15.obj
+- Assets/Models/10156-1 - LEGO Truck/10156-1 - LEGO Truck_step4.obj
+- Assets/Models/10156-1 - LEGO Truck/10156-1 - LEGO Truck_step1.obj
+- Assets/Models/10156-1 - LEGO Truck/10156-1 - LEGO Truck_step17.obj
+- Assets/Models/10156-1 - LEGO Truck/10156-1 - LEGO Truck_step8.obj
+- Assets/Models/10156-1 - LEGO Truck/10156-1 - LEGO Truck_step0.obj
+- Assets/Models/10156-1 - LEGO Truck/10156-1 - LEGO Truck_step11.obj
+- Assets/Models/10156-1 - LEGO Truck/10156-1 - LEGO Truck_step3.obj
+- Assets/Models/10156-1 - LEGO Truck/10156-1 - LEGO Truck_step7.obj
+- Assets/Models/10156-1 - LEGO Truck/10156-1 - LEGO Truck_step6.obj
+- Assets/Models/10156-1 - LEGO Truck/10156-1 - LEGO Truck_step13.obj
+- Assets/Models/10156-1 - LEGO Truck/10156-1 - LEGO Truck_step2.obj
+- Assets/Models/10156-1 - LEGO Truck/10156-1 - LEGO Truck_step10.obj
+- Assets/Models/10156-1 - LEGO Truck/10156-1 - LEGO Truck_step5.obj
+- Assets/Models/10156-1 - LEGO Truck/10156-1 - LEGO Truck_step16.obj
+- Assets/Models/10156-1 - LEGO Truck/10156-1 - LEGO Truck.obj
+- Assets/Models/10156-1 - LEGO Truck/10156-1 - LEGO Truck_step18.obj
+- Assets/Models/10156-1 - LEGO Truck/10156-1 - LEGO Truck_step14.obj
+Dependencies: []

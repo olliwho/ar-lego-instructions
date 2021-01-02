@@ -1,0 +1,155 @@
+%----------------------------------------------------------------------
+% Abstract class 'paper' 
+%% 
+% Note: This class extends the standard article class.
+%----------------------------------------------------------------------
+
+% \NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{paper}[2020/02/15 v1.0 Bachelor Thesis]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Packages
+%
+% Layout
+\usepackage[left=25mm,right=25mm,top=25mm,bottom=25mm,headheight=14pt]{geometry}
+\usepackage[utf8]{inputenc}
+% 
+% Math
+\usepackage{amsmath}           
+\usepackage{amssymb}
+% 
+% Figures/Graphics
+\usepackage[pdftex]{graphicx}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+% 
+\usepackage{subfig}
+% 
+\usepackage{xcolor}
+%
+\usepackage{enumitem}
+% 
+\usepackage[margin=1cm]{caption}
+% 
+\usepackage{afterpage}
+% 
+% Header/Footer
+\usepackage{fancyhdr}
+%
+% Blind text
+\usepackage{lipsum}
+% 
+% Get the page count
+\usepackage{lastpage}
+% 
+\usepackage{natbib}
+% \usepackage{bibentry}
+% \nobibliography*
+% Hyperref/URLs
+\usepackage[%
+  plainpages=false,
+  pdfpagelabels, 
+%   pagebackref, doesn't work with bibentry + natbib?????
+  colorlinks=true,
+  citecolor=blue,
+  linkcolor=blue,   % color of hyperref links
+  urlcolor=red,     % color of page of \url{...}
+  breaklinks=true   % break links if exceeding a single line
+  ]{hyperref}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Contact email
+\newcommand\contactemail[1]{\renewcommand\@contactemail{#1}}
+\newcommand\@contactemail{\@latex@error{No \noexpand\contactemail given}\@ehc}
+% 
+% Matriculation number
+\newcommand\matriculationnumber[1]{\renewcommand\@matriculationnumber{#1}}
+\newcommand\@matriculationnumber{\@latex@error{No \noexpand\matriculationnumber given}\@ehc}
+% Group Name
+\newcommand\group[1]{\renewcommand\@group{#1}}
+\newcommand\@group{\@latex@error{No \noexpand\group given}\@ehc}
+% 
+% Width of title page
+\newlength{\titlewidth}
+\setlength{\titlewidth}{13cm}
+%
+% Width of abstract
+\newlength{\abstractwidth}
+\setlength{\abstractwidth}{13cm}
+% 
+% Colors
+\definecolor{lgray}{RGB}{80,80,80}
+\definecolor{good}{RGB}{40,150,10}
+\definecolor{bad}{RGB}{220,10,0}
+%
+% Set header/footer style for text pages
+\newcommand{\headerstyle}{%
+  \pagestyle{fancy}%
+  \fancyhf{}% Reset header and footer
+  \rhead{\textcolor{lgray}{\@author}}%
+  \lhead{\textcolor{lgray}{Bachelor Thesis}}%
+  \renewcommand{\headrulewidth}{0pt}% Remove the header line
+}
+% 
+\newcommand{\footerstyle}{%
+  \pagenumbering{arabic}%
+  \setcounter{page}{1}%
+  \cfoot{\textcolor{lgray}{\thepage/\pageref*{LastPage}}}%
+}
+% 
+\newcommand{\paperpagestyle}{%
+\headerstyle
+\footerstyle
+}
+
+%
+%% Layout for the title page
+%
+\renewcommand{\maketitle}{%
+    \pagestyle{empty}%
+    \pagenumbering{roman}%
+    \begin{center}%
+        \begin{minipage}{\titlewidth}%
+        \vspace*{5cm}%
+        \centering%
+        {\LARGE\bfseries\@title}\\[1cm]%
+        {\normalsize Bachelor Thesis}\\[2cm]%
+        {\large\@author}\\[0.2cm]%
+        {\normalsize\@matriculationnumber}%
+        \end{minipage}%
+    \end{center}%
+    \vfill%
+    \begin{center}
+        \begin{minipage}{\titlewidth}%
+        \centering%
+        {\Large\bfseries{Bachelor Thesis}\\[2em]%
+        \normalsize\@group\\%
+        Graz, \@date%
+        }%
+        \end{minipage}%
+    \end{center}%
+    \vspace*{2cm}%
+    {Contact: \@author, \href{mailto:\@contactemail}{\@contactemail}}% 
+    \newpage%
+    \paperpagestyle%
+}
+%
+%% Redefine the abstract
+%
+\renewenvironment{abstract}{%
+  \begin{center}%
+    {\bfseries\abstractname}\\[1em]
+    \begin{minipage}{\abstractwidth}%
+}{%
+    \end{minipage}%
+  \end{center}%
+  \afterpage{\clearpage}
+  \vwafooterstyle%
+}
+
+% Commands
+\newcommand{\red}[1]{\textcolor{bad}{#1}}
+
+% Automatically add the title page
+\AtBeginDocument{\maketitle}
+%% End of file

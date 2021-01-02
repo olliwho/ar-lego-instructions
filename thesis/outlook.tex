@@ -1,0 +1,42 @@
+\chapter{Outlook}
+\label{cha:outlook}
+
+Our instruction workflow works well for most of the models but there are also many things or features that could be improved, optimized or added. 
+
+\section{Optimizations}
+
+Following things are working fine in our application but could be optimized for a smoother and more efficient execution: 
+
+\begin{description}
+\item[Unseen faces]
+Most of the meshes given in the model repository have faces defined that we do not need in our application. This is because in the .ldr or .mpd files, every brick is described entirely. If we take for example a pyramid that has four layers, we would not need all the bottom faces and insides of the bricks on the top 3 layers. Just the outside, the hull of the model would be sufficient. What makes it difficult, is how to find out which faces to neglect without looking at each set before and deciding by hand.
+
+\end{description}
+
+\section{Additions}
+Some things that can possibly be added to expand the functionality:
+
+\begin{description}
+\item[Brick detection]
+This addition would be useful if users have a pile of bricks and do not know which of them they really need for the model. The idea is to implement an algorithm that detects the bricks required for the current step out of the pile and highlights it. 
+
+\item[Model detection]
+The idea is similar to the last point, but with the difference that the application should detect the whole model we are currently building and overlay it with our instructions. If the users move their head or the already connected bricks, the overlay should of course stay on the model.
+
+\item[Bricks per step] 
+To have a better understanding of what parts are used, an idea would be to have an overview of which individual bricks are used each step and to show them somewhere on the screen, similar to the small model we already have.
+\end{description}
+
+\section{Possible Changes}
+\label{sec:changes}
+Changes that may improve the application:
+\begin{description}
+\item[Input files]
+One potential fix for our problem with the runtime model loading would be to use another file format for the preprocessing output and application input. Preferably one that can be imported directly to Unity and works better than the .obj parser but still without having to write it on our own.
+
+\item[Model preview]
+The currently implemented way on how to show the preview model is to copy together all the step models in the preprocessing step and then load this new model. By not optimizing and deleting unseen vertices and faces inside of the mesh, this step is unnecessary. We could just load all the step meshes together and display them as one object.
+
+\item[Runtime loading of model] 
+At the moment, the asset bundles that contain the models get saved and loaded from the streaming assets folder because it gets copied to the final build location. The idea behind this is to let the application get the assets from a web server, download it to the streaming assets folder and load it from there. To do so, we could make a web request every time the model picker is opened and check if there are any new models on the server. That could even go so far to just get the model file list every time and just download the picked model to keep the web traffic as low as possible.
+\end{description}

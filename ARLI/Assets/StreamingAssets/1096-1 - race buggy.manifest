@@ -1,0 +1,35 @@
+ManifestFileVersion: 0
+CRC: 2321915496
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 7df9dd8ca907a2b1f8096bfbb9602795
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: f36c9c8b64978d0f0375ccd6cab767d7
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/Models/1096-1 - Race Buggy/1096-1 - Race Buggy_step5.obj
+- Assets/Models/1096-1 - Race Buggy/1096-1 - Race Buggy_step1.obj
+- Assets/Models/1096-1 - Race Buggy/1096-1 - Race Buggy_step3.obj
+- Assets/Models/1096-1 - Race Buggy/1096-1 - Race Buggy_step2.obj
+- Assets/Models/1096-1 - Race Buggy/1096-1 - Race Buggy_step4.obj
+- Assets/Models/1096-1 - Race Buggy/1096-1 - Race Buggy.obj
+- Assets/Models/1096-1 - Race Buggy/1096-1 - Race Buggy_step0.obj
+- Assets/Models/1096-1 - Race Buggy/1096-1 - Race Buggy_step6.obj
+Dependencies: []

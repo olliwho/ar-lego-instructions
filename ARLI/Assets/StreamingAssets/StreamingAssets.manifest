@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 1230484340
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: pyramid
+      Dependencies: {}
+    Info_1:
+      Name: models
+      Dependencies: {}
+    Info_2:
+      Name: car
+      Dependencies: {}
+    Info_3:
+      Name: 1096-1 - race buggy
+      Dependencies: {}
+    Info_4:
+      Name: 10156-1 - lego truck
+      Dependencies: {}
+    Info_5:
+      Name: 21008-1 - burj khalifa
+      Dependencies: {}

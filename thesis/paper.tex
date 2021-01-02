@@ -1,0 +1,257 @@
+%----------------------------------------------------------------------
+% Template for both the initial and revised paper submitted to the course 
+% WRITING SCIENTIFIC PAPERS (Verfassen wissenschaftlicher Arbeiten).
+%----------------------------------------------------------------------
+% 
+% Load the course-specific layout class
+\documentclass[11pt,a4paper]{article}
+\usepackage{paper}
+\usepackage{blindtext}
+\usepackage{enumitem}
+
+%---------------------------------------------------------------------- 
+% Your contact details
+\author{Oliver Reichmann}
+\contactemail{oliver.reichmann@student.tugraz.at}
+\matriculationnumber{01611723}
+
+% Title
+\title{AR Lego Instructions}
+
+% Name of your group
+\group{Ass.Prof. M.Sc. PhD Ursula Augsdörfer}
+
+
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+
+\begin{document}
+	
+\tableofcontents
+\newpage
+	
+\section{Abstract}
+
+\section{Introduction}
+
+\section{Augmented Reality (AR)}
+
+	overlaying information to real life, in real time, to help, give infromation
+	When we speak from Augmented Reality (AR) we mostly think about overlaying information on the real world, in the most cases this happens with the help of an head mounted device, that contains some sort of display that is see trough. If the display is completely opaque and shield the users view from the reality we speak from Virtual Reality (VR). 
+	Even thought it may seems like AR is a relatively new technology the idea of it can be traced back to more than 100 years, way before the first computer, when the american author L.Frank Baum, famous for his book 'The Wonderful Wizard of Oz', described a device that can be compared to modern AR glasses. in his short story 'The Master Key' he writes about a pair of electrical glasses that show the wearer the character of the person in front of him in form of a letter over their head. \red{ref}. It took almost another 70 years till \red{Ivan E. Sutherland} \cite{sutherland68} proposed his idea of an head mounted display in his paper from 1968.\red{ref, ...} 
+	Of course AR is not limited to glass-like devices, as long as some computer generated graphics are merged with the real world and are shown to the user. 
+	
+	\subsection{Evolution}
+	
+
+	\subsection{Use Cases}
+	AR can be used in many different situations, however not all of them are suitable for the everyday use, also because the hardware for more advanced things has to be good and is therefor still in the upper price range and not that affordable. Also many devices are still quite big or have a limited battery capacity.
+	\begin{description}
+		\item[Information overlay]  
+		Information overlay is one of the easier but still very useful technique. The idea is that the user, wearing the AR glasses gets information about his surrounding. An good example for that is Directions (\red{ref}), an application from Google, for its own AR glasses. The software shows the user the way, similar to Maps just on the display in front of the head. That can be advantageous for example when driving a motorcycle or bike to give information about speed, directions or even have a 360 degree view of field with the help of additional cameras. The overlay is mostly \red{non-immersive}, meaning the it does not interact with any objects the real world. The elements simply get displayed in front of the eyes or on any other display, preferably not obstructing anything else. It is also used in fight jets \red{ref}.
+		\item[Translation]
+		A case where it is very much liked for the  generated graphics to overlay things in real world is when it is used for translation, like Google Translate (\red{ref}) does it. The application uses text recognition to detect writing in a picture or video stream coming from a camera and translates it. The translation is then displayed directly over the old content so that the user just sees text that he can understand. That can be useful while driving in a foreign country to quickly and directly understand street signs. A slightly modified approach is to use a microphone instead of a camera and use speech recognition to hear and translate the words to show them, with the advantage that no software for reading the translation has to be used.
+		\item[Instructions]
+		What we want to do and what many of AR glasses are used for (\red{ref???}) is giving instructions and showing the user what he has to do. A famous use case is giving the wearer directions on how to assemble a machine the he is not familiar with. In that way technicians can have clearly shown instructions that are integrated with the real world. Optimally they are shown on a head-up display (HUD) so that the user does not have to look away from his work and also has his hands free ro work.
+		\item[Games]
+		This is one of the smaller points, since here the usage of VR is better and preferred. AR is mostly used on phones with the help of the camera to simulate transparency and interacting with the real life. The advantage to games on AR glasses is that the computing power is better A famous one is Pokemon Go from 2014 (\red{ref}), played on the smartphone. Here the phone camera and screen is used to show the real life, overlayed with graphics. 
+		\item[Room planning]
+		There are applications, among others from IKEA\red{ref}, that let you design your interior with the help of AR. The simply work on your smartphone and let you insert models of there furniture into your living room, with the help of the camera. The whole thing works in real time \red{does it?} and without any extra devices. 
+		\item[Architecture] 
+		\red{ref daehne}
+		\item[TV]
+		weather
+		wahlen
+		statistics
+		
+	\end{description}
+	
+	\subsection{Available Hardware}
+	There are multiple available AR devices available on the market, with most of them being some sort of glasses. With the increasing power of smartphones, AR applications also became available for phones. That may be the easiest and wiedly avalaible There are even motorcycle helmets with integrated displays to give the driver real time infos while on the road (\red{Jarvish X-AR}).  
+	hololens
+	google lens
+	smartphone
+	helmets
+		
+	\subsection{Available Software}
+	eyetracking, only render fov high quality
+	calculating on phone
+	
+	
+	\subsection{Features}
+	Most of the available AR glasses have some integrated features that enhance the usability of the device. How good they work depends on the vendor \red{ref? statistik?}
+	Calibration
+	eye tracking
+	sprachsteuerung
+	
+	\subsection{Challenges}
+	overlaying
+	not too much
+	transparent
+	computing power
+
+\section{Application}
+
+	The project is to create an application for the Hololens that gives the user instructions for building a LEGO model step for step. The app should let the user select a model and display the blocks for each step in Augmented Reality on the glasses.
+	For that we use a 2 step approach, first we preprocess the input files and then compile the app.
+
+	\subsection{Preparing Model}
+	
+	To show the model step after step, we first had to parse the given model file. We are working with the open source model description file format LDraw, with provides us with .ldr files. These describe lines, triangles and quads. The problem is that unity, the application we will use to build the models, does not understand this file format, so we are using the Python scripting language to read the .ldr files and write out a model in the Wavefront OBJ file format for each step. Additionally we are writing a file for the whole model and a file for each used brick. To represent the color of the models, the Material Template Library format (MTL), a companion file format to .OBJ, is used.
+	
+	\subsubsection{Input}
+	We have two options on how to describe our input. The .mpd and the .ldr file format, our parser works with both of them
+
+	\paragraph{MPD}
+	The Multi-Part Document (MPD) is a file that comes from the Official Model Repository (OMR) \red{link} and describes a brick set, released by LEGO. It has a standardized file name with information about the set name and number and contains one or multiple models in the .ldr format which in return refer to multiple .dat files to describe the bricks.
+
+	\paragraph{LDR} 
+	The LDraw file format describes the orientation and coordinates of multiple bricks of a model in the 3D space. It consists of multiple lines, each one starting with an integer that describes the kind of lines. There are 6 different line types: 
+	\begin{description}
+		\item[0] Commands or META command like information about new steps.
+		\item[1] Sub-file reference and their orientation and coordinates.
+		\item[2] Line between two points, typically edges of bricks.
+		\item[3] Filled triangle between three points.
+		\item[4] Filled quadrilateral between four points, defined in either clockwise or counter-clockwise winding order.
+		\item[5] Optional line between two points, that is only shown from an certain perspective.
+	\end{description}
+	All types, expect from 0, contain at least the 3D coordinates (X,Y,Z) of one point, all of them also contain an integer which describes the color of the item. The color has to be looked up in an dictionary because the number say nothing about the RGB values. Line type one defines a homogeneous translation matrix, with which one has to multiply all point in the referenced file.
+	
+	\subsubsection{Output}
+	As output we get multiple files that we will need in the second step. Most of them are Wavefront Object files (.obj file ending), additionally we also create normal text files (.txt) since they are easy to write and  parse. We get at least the following 6 files, some of them can also occur more often, depending on how many steps and different bricks we have.
+	\begin{description}
+		\item[Steps]
+		The most important thing we want to extract from our .ldr file is a model of every step. For that we used the .obj file format which contains our vertices and lines between them. The more steps we have the more of these files we get.
+		\item[Colors]
+		To get give the models the same color as in the .ldr files, we have to use the .mtl file format, so for every new model we create on of these. Since it basically contains a dictionary of the LDraw colors (every color number is represented as a own material) we only need one for all models.
+		\item[Step info]
+		Since we want to additionally show the bricks used for every step at the edge of the view we somehow have to save that information when extracting the initial .ldr file. For that we create a simple text file that contains for every step the filenames of the bricks used.
+		\item[Small models]
+		For showing the small model at the side we of course have to write an extra .obj, which basically contains of all the step files stitched together. That is not the optimal solution, since we also create points and triangles that are basically not seen inside of the finished model, but it is simple and fast in creation. Also many points get defined multiple times, even if they are used from various items.
+		\item[Bricks]
+		As mentioned before, for better understanding of what is going on we want to show the bricks needed for the current step. To do so we have to create a model/.obj file for every one, that we can later load with the help of the step info text file. To not write bricks that are used more often every time, we keep a list of already written brick in mermory while parsing.
+		\item[Lines]
+		The internal unity parser that we are using to read our step files can not deal with line infos in the .obj files. To not have to write our own .obj parser, what would be pointless since the internal \red{parser} is the main reason we are using the .obj format, we write our lines in separate files so we just have to render them \red{'per hand'} and construct our lines. We will see later that that is also not a good alternative to have textures so we can actually see the edges of the bricks
+	\end{description}
+	steps
+	colors
+	step info
+	small models
+	bricks
+	lines
+	
+	
+	\subsection{Showing Model}
+	
+	In the second step, we want to build an application for the Windows HoloLens where we can pick a model to be shown step by step.
+		
+		\subsubsection{Prerequisites}
+		\begin{description}[align=left]
+			\item [Model picker] 
+			At the start menu we want some sort of field where we can choose a model that we want instructions for. The application should scan a directory and list all models with valid instructions, and let the user pick one.
+			
+			\item [Dynamically Loading] 
+			No model should be loaded upfront, so we just have to have the steps for the current instruction in memory. Just after the model is picked, the blocks for just that model get loaded.
+			
+			\item [Step by Step Instruction]
+			For every model we want every step showed separately, animated for the best understanding.  
+			
+			\item [Voice Input]
+			Since we want to build something while we are getting the instructions from the AR glasses, the best and easiest input we can have to go from step to step is to use voice input. With this method the user has his hands free for the construction. 
+			
+			\item [Small model]
+			To better understand what the user is building, we want to show him a small version of the model he is currently building.
+			
+			\item [Bricks per Step]
+			Additionally to the small model it can also be helpful to see with LEGO bricks are used in the current step, these will also be shown.
+			
+		\end{description}
+	
+	 
+	
+	\subsection{Problems}
+	Whileb designing we run in a few problems that we had to solve. Some of them happened because of programming errors, others because the used components simple did not work as expected.
+	
+	-lines,
+	-orientation matrix was wrong in the beginning
+	-color per vertex at the beginning, wrong, have to use mtl
+	ligthning
+	-extra bricks für vorschau, müssen zentriert sein um zu rotieren
+	optimization, runs to slow with lines
+	limited memory on holo
+	models parsing at runtime
+	\begin{description}[align=left]
+		\item [Wrong orientation matrix] 
+		This problem affected us two times. First we have to transform \red{(insert transformation formula)} all the input points that we read from the input .ldr file. For that every brick file that gets added per step has his own transformation \red{vector} defined. We now have to transform all the points inside of the new file to have the bricks where the file wants them to. The first error we mad was that we also have to transform the new transformation vectors inside of the file and not just the points. That shows in the points and triangles in the first layer of files would be on the right positions but any others would be wrong. \red{maybe show a scrhot?)}\newline
+		The second inconvenieneensce we encountered where when we saved the individual bricks for showing them per step. Since in the .ldr file they are transformed to bring them in the right place, they are not centered, meaning the middle of the bloc is not at the origin of the local coordinate system. That becomes a problem when we want to display them later on, we want them in the center of the frame we put them in. Also if we want to animate the brick, rotate it for example, we want it to spin around the center so it looks nice and does not go out of frame.
+		To fix this we had to save all the bricks without the first transformation. Since new bricks are only defined in the first file, the first layer, it is easy to just construct a .obj file from the brick by giving an identity orientation matrix to transform all points of the brick.
+		
+		\item [Color] 
+		To get the color of the models right was difficult. The .ldr file defines the color at the beginning of every file, line, triangle or quad with help of an single integer. This number then has to be looked up to find the actual color, while some of them also define other behaviors like take to same color as the brick on layer above, or the complementary color. The fist approach was to define vertex colors, to give every point in the .obj file an RGB value. That works great if we work with programs that can interpret and parse the vertex color like Meshlab \red{ref?}, which we used at the begining to test and control the output of the python script. The problem emerged when we started with the second step and tried to load our objects in Unity to build our application. The Unity .obj parser does not understand vertex colors so to interpret them we would have to write an custom \red{shader}. The other option we have is to use a material library file (.mtl) and write all the colors/materials in there instead of define them per vertex. Now we just have to write a separate file with all the colors and define which ones we are using in front of the triangle lines in the .obj file. Whit that Unity can create the materials itself to add them to the models.
+		
+		\item [Shading]
+		just on side, we have to define outside of face
+		
+		\item [Lightning]
+		Lorem ipsum  
+		
+		\item [Runtime parsing]
+		At first we fixed the model to the app. Depending on the chosen model in the beginning we loaded a prepared scene. That worked, but was not optimal since we want the models loaded at runtime. The second approach was to but every model we have in the Resources folder in the Application so that the model files would be part of the build and can be loaded at execution. The problem here is that all models and files for them have to be written before building the app and ones build we cant add any new LEGO builds. Every .ldr file has to be preprocessed with the pyton script and the created files saved in the build directories before we can build our application for the Hololens.
+		
+		\item [Lines]
+		Another big problem we have with the .obj format is that the Unity parser do not know what to do with lines, defined between two vertices, so all the models just have an uniform color but we cant distinguish between different blocks.  {screenshot} One Fix for that would be using texture mapping but since we do not have texture pictures and do not want to create them for every single brick we are using, this is not an optimal solution. What we are doing is that we are writing all our lines to a separate file that we are parsing manually. In our C\# script that we are using to load the current model we are reading the lines file, a simple ASCII Text file, and creating and adding all the lines.\red{That is a large overhead so i do not know if i should keep this feature yet, but i can not think of any other way to do it.}  This brings us to our next problem.
+		
+		\item [Performance]
+		Adding all the lines results in an big loss in performance. An easy solution would be just not adding the lines but this is ot really an option since the lines are essential for understanding of the model. We could try to reduce the number of line. The model specifies manny more than we actually need for understanding the bricks so we just add the important ones. The big question is which ones to we keep and which ones to neglect.\red{but we dont really have an solution just yet}
+		
+	\end{description}
+	
+\section{Used Software}
+
+	\begin{itemize}
+		\item LDraw
+		aertoih aeöotifa aewtg
+		\item Python
+		dag adg a a
+		\item obj
+		
+	\end{itemize}
+	
+	\subsection{LDraw}
+	
+	LDraw is a collection of software and similar tools to model LEGO designs James Jessiman. Today it is maintained and further developed by the community. From this tool collection we just use the file format .ldr and the large library of parts for the models. The .ldr file tells us all the steps and which bricks are used in this phase. Additionally to the file name of the new brick it also tells us the color and orientation in the room. In the brick files we have information about lines, triangles, quads and in most of them also references to other files, so that common structures do not have to be defined in every brick but can be shared. For parsing that means we can or even have to work with recursion.
+	
+	\subsection{Python}
+	
+	For the preprocessing of the model step files we used python 3.8.1, an easy powerful scripting language. We use it to read the .ldr model files and translate them to .obj and additional files that we need to do something with the model in Unity for our application 
+	
+	\subsection{Wavefront OBJ/MTL}
+	
+	This file format is used for the step models, since Unity can read and parse it. It is an other format to describe 3D Forms. The files are saved in \red{ASCII} so the human can read it. To describe a model, the file first specifies vertices and then faces that reference the vertices. Additionally to that it is also possible to define vertex normals and texture coordinates. Since the LDraw format does not provide textures but only the colors of the bricks, we are also using the material template library (MTL) do specify the colors/materials of the objects. \red{...} 
+	
+	\subsection{Unity/C\#}
+	
+	Unity is an application for modeling and writing 3D games and applications. We use it to build our program for the HoloLens where we load our generated .obj files for each step and show them for the user.
+	
+	\subsection{Mixed Reality Tool Kit (MRTK)}
+	
+	This Tool Kit is a Library developed and distributed by Microsoft, and is especially designed for use with the HoloLens, also distributed by the same company. It provides many useful functions and scripts for interacting and
+	
+	\subsection{HoloLens 1}
+	
+	The Hololens is one of the few available 3D AR glasses and is developed by Microsoft. Currently the 2nd version is available, for our project we used the 1st generation.  Since it uses a common, popular operating system, Windows,  there are many good maintained tools to develop applications for it.
+
+\section{Challenges}
+runtime
+performance
+developing for windows?
+see thru background
+
+\section{Conclusion}
+
+
+\bibliographystyle{plain}
+\bibliography{paper_references}
+
+\end{document}
+%----------------------------------------------------------------------

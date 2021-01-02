@@ -1,0 +1,37 @@
+\chapter{Introduction}
+\label{cha:introduction}
+
+AR is a powerful technology with many practical use cases, be it for teaching, gaming, giving directions or anything else. What we want to do is to use it for giving users instructions on how to build a LEGO model with the help of a head-mounted device.\newline
+The goal of our application is to give the user step by step instructions for various LEGO models, shown as realistic as possible. The manual should always be available in the users field of view, while users should be able to inspect the model from all sides and also rescale it. Additionally, the new bricks in the current step should be somehow highlighted for better understanding. We defined a few requirements that our app should meet:
+
+\begin{description}[align=left]
+	
+	\item[Platform] 
+	Picking the right platform is essential. For us, the decision was between using an Android phone and taking advantage of the camera to create the illusion of a see-trough device with additional information overlay, or using the Microsoft HoloLens, specifically designed for Augmented and Mixed Reality. The fact that an application on a head-mounted device could be controlled hands-free, made it easy for us to decide to develop our app to run on the HoloLens.
+	
+	\item [Model picker] 
+	In the start menu we want an input field where we can choose a model that we want instructions for. The application should scan a directory and list all models with valid instructions and let the user pick one. Optionally it could also show a model preview and give extra information, like how many steps have to be carried out or which and how many (different) bricks are used.
+	
+	\item [Dynamically Loading] 
+	No model should be loaded upfront, so that we only have to keep the steps for the current instruction in memory. Just after the model is picked, the brick meshes for just that model get loaded, ideally even just for the current step.
+	
+	\item [Step by Step Instruction]
+	For every model we want to show every step separately, highlighted for the best understanding, with bricks appearing where they should be. If there are no steps given in the input LDraw~\cite{ldraw} file, the model should be shown brick after brick in the order they are described in the file.
+	
+	\item [Voice Input]
+	Since we want to build something while we are getting the instructions from the AR glasses, the best and easiest input we can have to go from step to step is to use voice input. With this method, the user has his hands free for the construction. We want commands to pick the model in the beginning, as well as to go to the next and previous step. In addition commands  for starting and for going back to the model picker would be nice to have.
+	
+	\item [Small model]
+	To better understand what the users are building, we want to show them a small version of the model they are currently working on, that is always in their field of view. This should give an overview of how it should look in the end.
+	
+	\item[Movable/Scalable model] 
+	To better see and interpret the instructions, the model geometry should be movable to place it anywhere in the room and scalable to change the size.
+	
+	\item[Step Highlighting]
+	To see the bricks used for the current step, we want to highlight them so users clearly see which ones to add where.
+		
+\end{description}
+
+In the following we will first talk about what Augmented Reality is and what it can be used for. Furthermore, we will show how and with what means we implemented the above proposed application. Subsequently we evaluate it and speak about what went wrong on the way and how we overcame these problems. In the end we will come up with some things that we can change or add to further improve the app in the future.
+
+

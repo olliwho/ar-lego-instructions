@@ -1,0 +1,15 @@
+models/*
+parts/*
+.idea/*
+assets/*
+parts/*
+ARLI/Library/*
+ARLI/Logs/*
+ARLI/MSBuild/*
+ARLI/.idea/*
+ARLI/*.csproj
+ARLI/Assets/Resources/*
+/ARLI/MSBuildForUnity.Common.props
+/.vs/
+/ARLI/obj/
+/FileParser/.idea/

@@ -1,0 +1,36 @@
+ManifestFileVersion: 0
+CRC: 1270075167
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 2eaacab8d1b6021c646cf71741ff10e5
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: f36c9c8b64978d0f0375ccd6cab767d7
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/Models/Car/car_step2.obj
+- Assets/Models/Car/car_step7.obj
+- Assets/Models/Car/car_step1.obj
+- Assets/Models/Car/car_step5.obj
+- Assets/Models/Car/car_step3.obj
+- Assets/Models/Car/car_step6.obj
+- Assets/Models/Car/car_step4.obj
+- Assets/Models/Car/car.obj
+- Assets/Models/Car/car_step0.obj
+Dependencies: []

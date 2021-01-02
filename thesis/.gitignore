@@ -1,0 +1,31 @@
+template/auto/*
+20*pdf
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+Template-Documentation.tex
+main.pdf
+main-blx.bib
+*.bcf
+*.run.xml
+*test
+*old
+main.lof
+\#*
+\.\#*
+main.tdo
+*.synctex.gz
+template/blind*
+/paper.pdf
+/template/title_Diplomarbeit_KF_Uni_Graz.tex
+/template/title_plain_maketitle.tex
+/template/title_VWA.tex
+/template/todos.org
+/figures/PDF preview - bibliography -- screenshots.png
+/figures/PDF preview - title page -- screenshots.png
+/figures/PDF preview - contents -- screenshots.png
+/figures/PDF preview - language and writing -- screenshots.png
+/2020-07-15_ARLI.pdf
